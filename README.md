@@ -1,1 +1,43 @@
-# JavaCode
+public class Vehicle {
+    private String manufacturerName;
+    private int numberOfCylinders;
+    private String ownerName;
+
+    // Default Constructor
+    public Vehicle() {
+        this("none", 6, "none");
+    }
+    // Parameterized Constructor
+    public Vehicle(String manufacturerName, int numberOfCylinders, String ownerName) {
+        setManufacturerName(manufacturerName);
+        setNumberOfCylinders(numberOfCylinders);
+        setOwnerName(ownerName);
+    }
+    // Getters
+    public String getManufacturerName() { return manufacturerName; }
+    public int getNumberOfCylinders() { return numberOfCylinders; }
+    public String getOwnerName() { return ownerName; }
+    // Setters
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = (manufacturerName != null && !manufacturerName.isEmpty()) ? manufacturerName : "none";
+    }
+    public void setNumberOfCylinders(int numberOfCylinders) {
+        this.numberOfCylinders = (numberOfCylinders > 0) ? numberOfCylinders : 6;
+    }
+    public void setOwnerName(String ownerName) {
+        this.ownerName = (ownerName != null && !ownerName.isEmpty()) ? ownerName : "none";
+    }
+    // Equals
+    public boolean equals(Vehicle other) {
+        return other != null &&
+               manufacturerName.equals(other.manufacturerName) &&
+               numberOfCylinders == other.numberOfCylinders &&
+               ownerName.equals(other.ownerName);
+    }
+    // ToString
+    public String toString() {
+        return "Manufacturer’s Name: " + manufacturerName + "\n" +
+               "Number of Cylinders: " + numberOfCylinders + "\n" +
+               "Owner’s Name: " + ownerName + "\n";
+    }
+}
